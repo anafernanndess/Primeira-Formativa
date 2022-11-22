@@ -1,0 +1,31 @@
+.data
+    num: .asciiz "\n"
+
+.text
+main:
+
+    #insere num1
+    li $v0, 5
+    syscall
+    #mudando o num1 para $t0
+    move $t0, $v0
+
+    #insere num2
+    li, $v0,5
+    syscall 
+    #mudando num2 para $t1
+    move $t1, $v0
+
+   #somando
+   li $v0,1
+   add $a0, $t0, $t1
+   syscall
+
+   #pula linha 
+   la $a0,num
+   li $v0, 4
+   syscall 
+
+   #encerra
+   li $v0, 10
+   syscall
